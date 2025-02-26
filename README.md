@@ -1,0 +1,3 @@
+SQL Injection is a critical security vulnerability where an attacker manipulates input fields to execute arbitrary SQL commands, potentially exposing or modifying database data. This typically occurs when user input is directly concatenated into SQL queries without proper sanitization.
+
+This API is protected against SQL Injection because it uses Entity Framework Core (EF Core), which automatically parameterizes queries. Instead of constructing raw SQL statements with user input, EF Core generates queries using safe, bound parameters. For example, in `dbContext.Users.FirstOrDefaultAsync(x => x.UserName == userName)`, EF Core ensures that `userName` is treated as a parameter rather than executable SQL, preventing malicious injections.
